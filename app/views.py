@@ -6,5 +6,9 @@ from app import app
 def index():
     return render_template('index.html', title='Home')
 
+@app.route('/blog')
+def blog():
+	return render_template('blog.html', title='Blog')
+
 
 
