@@ -7,9 +7,15 @@
 	{{ form.hidden_tag() }}
 	<p> Who are you? <br>
 	{{ form.name(size=80) }} <br>
+	{% for error in form.name.errors %}
+        <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}<br>
 	</p>
 	<p> Comments: <br>
 	{{ form.comment(size=256)}} <br>
+	{% for error in form.comment.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}<br>
 	</p>
 	<p><input type="submit" value="Submit"></p>
 </form>
