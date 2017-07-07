@@ -1,0 +1,16 @@
+{%extends "base.html" %}
+
+{% block content %}
+
+<h1> Contact me </h1>
+<form action="" method="post" name="contact_me">
+	{{ form.hidden_tag() }}
+	<p> Who are you? <br>
+	{{ form.name(size=80) }} <br>
+	</p>
+	<p> Comments: <br>
+	{{ form.comment(size=256)}} <br>
+	</p>
+	<p><input type="submit" value="Submit"></p>
+</form>
+{% endblock %}
