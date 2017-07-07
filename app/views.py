@@ -15,6 +15,10 @@ def blog():
 @app.route('/contact', methods=['GET', 'POST'])
 def contact():
 	form = ContactMeForm()
+	if form.validate_on_submit():
+		flash('Thanks for your comment, "%s". You wanted to let Jonas know "%s" ' % 
+			(form.name.data, form.comment.data))
+		return redirect('/index')
 	return render_template('contact_me.html',
 							title='Contact Me',
 							form=form)
