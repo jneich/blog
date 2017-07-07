@@ -1,6 +1,7 @@
 from flask import render_template, flash, redirect
-from app import app
+from app import app, db
 from .forms import ContactMeForm
+
 
 @app.route('/') 
 @app.route('/index')
@@ -18,6 +19,7 @@ def contact():
 	if form.validate_on_submit():
 		flash('Thanks for your comment, "%s". You wanted to let Jonas know "%s" ' % 
 			(form.name.data, form.comment.data))
+
 		return redirect('/index')
 	return render_template('contact_me.html',
 							title='Contact Me',
